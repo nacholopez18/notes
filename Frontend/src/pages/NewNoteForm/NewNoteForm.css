@@ -1,0 +1,10 @@
+/* .newNoteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.newNoteForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
