@@ -44,13 +44,18 @@ function Notes() {
             Ordenadas {order === "desc" ? "más recientes" : "más viejas"}
           </label>
         </div>
-        <ul>
+
+        <div className="individualNotesContainer">
           {notes.map((note) => (
-            <li key={note.notes_id}>
-              <Link to={`/notes/${note.notes_id}`}>{note.title}</Link>
-            </li>
+            <Link to={`/notes/${note.notes_id}`} key={note.notes_id}>
+              <div className="individualNote">
+                <h5 className="titleNote">{note.title}</h5>
+                <p className="contentNote">{note.note}</p>
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
+
         <div>
           <Link to="/newNoteForm">
             <ButtonComp texto="Crear nueva nota" />
