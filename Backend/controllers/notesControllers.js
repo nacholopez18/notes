@@ -15,11 +15,12 @@ exports.allnotes = async (req, res) => {
 };
 
 exports.newnote = async (req, res) => {
-  const { title, note } = req.body;
+  const { title, note, active } = req.body;
   try {
     await knex("notes").insert({
       title: title,
       content: note,
+      active: active,
     });
 
     res.status(200).json({ message: "Nota ingresada en la base de datos" });

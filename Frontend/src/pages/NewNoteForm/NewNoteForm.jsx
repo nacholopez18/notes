@@ -7,12 +7,13 @@ import "./NewNoteForm.css";
 function NewNoteForm() {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
+  const [active, setActive] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await newNote({ title, note });
+      await newNote({ title, note, active });
       console.log("Nueva nota agregada exitosamente!");
       navigate("/notes");
     } catch (error) {
@@ -37,6 +38,7 @@ function NewNoteForm() {
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
+          <input type="checkbox" value={active} />
           <ButtonComp texto="Agregar Nota" type="submit" />
           <Link to="/notes">
             <ButtonComp texto="Volver a notas" />

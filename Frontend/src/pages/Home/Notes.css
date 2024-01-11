@@ -7,6 +7,7 @@
 .individualNotesContainer {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 .individualNote {
   width: 200px;
@@ -17,7 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  letter-spacing: 0.3rem;
+  line-height: 1.4rem;
 }
 
 .titleNote {
