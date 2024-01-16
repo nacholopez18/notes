@@ -10,6 +10,26 @@ export const allNotes = async () => {
     throw error.response.data.error;
   }
 };
+export const achivednotes = async () => {
+  let url = "/notesarchived";
+  try {
+    const result = await api.get(url);
+    // console.log(result);
+    return result.data;
+  } catch (error) {
+    throw error.response.data.error;
+  }
+};
+export const unachivednotes = async () => {
+  let url = "/notesunarchived";
+  try {
+    const result = await api.get(url);
+    // console.log(result);
+    return result.data;
+  } catch (error) {
+    throw error.response.data.error;
+  }
+};
 export const getNote = async (id) => {
   try {
     let url = `/notes/${id}`;

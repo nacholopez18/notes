@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import "./Notes.css";
-import { allNotes } from "../../../API/notes_API";
+import { archivednotes } from "../../../API/notes_API";
 import { Link } from "react-router-dom";
 import ButtonComp from "../../components/Button/ButtonComp";
 
-function Notes() {
-  const [notes, setNotes] = useState([]);
+function AchivedNotes() {
+  const [achivedNotes, setAchivednotes] = useState([]);
   const [order, setOrder] = useState("desc");
 
-  const getAllNotes = async () => {
+  const getAchivedNotes = async () => {
     try {
-      const allNotesDb = await allNotes();
-      const sortedNotes =
+      const achivedNotesDb = await archivednotes();
+      const sortedAchivedNotes =
         order === "desc"
-          ? allNotesDb.sort((a, b) => b.notes_id - a.notes_id)
-          : allNotesDb.sort((a, b) => a.notes_id - b.notes_id);
-      setNotes(sortedNotes);
+          ? achivedNotesDb.sort((a, b) => b.notes_id - a.notes_id)
+          : achivedNotesDb.sort((a, b) => a.notes_id - b.notes_id);
+      setAchivednotes(sortedAchivedNotes);
     } catch (error) {
       console.error("Error al obtener las notas:", error);
     }
   };
 
   useEffect(() => {
-    getAllNotes(order);
+    getAchivedNotes(order);
   }, [order]);
 
   const handleOrderChange = () => {
@@ -46,11 +46,14 @@ function Notes() {
         </div>
 
         <div className="individualNotesContainer">
-          {notes.map((note) => (
-            <Link to={`/notes/${note.notes_id}`} key={note.notes_id}>
+          {achivedNotes.map((achivedNotes) => (
+            <Link
+              to={`/notes/${achivedNotes.notes_id}`}
+              key={achivedNotes.notes_id}
+            >
               <div className="individualNote">
-                <h5 className="titleNote">{note.title}</h5>
-                <p className="contentNote">{note.note}</p>
+                <h5 className="titleNote">{achivedNotes.title}</h5>
+                <p className="contentNote">{achivedNotes.note}</p>
               </div>
             </Link>
           ))}
@@ -71,4 +74,4 @@ function Notes() {
   );
 }
 
-export default Notes;
+export default AchivedNotes;

@@ -13,6 +13,36 @@ exports.allnotes = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+exports.achivednotes = async (req, res) => {
+  try {
+    const notesDb = await knex("notes")
+      .select(
+        "notes_id",
+        "title as title",
+        "content as note",
+        "active as active"
+      )
+      .where({ active: true });
+    res.status(200).json(notesDb);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+exports.unachivednotes = async (req, res) => {
+  try {
+    const notesDb = await knex("notes")
+      .select(
+        "notes_id",
+        "title as title",
+        "content as note",
+        "active as active"
+      )
+      .where({ active: false });
+    res.status(200).json(notesDb);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 exports.newnote = async (req, res) => {
   const { title, note, active } = req.body;

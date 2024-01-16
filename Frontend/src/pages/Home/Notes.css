@@ -31,3 +31,7 @@
   margin: 4rem 1.5rem auto;
   overflow: auto;
 }
+a .contentNote {
+  text-decoration: none;
+  color: black;
+}
