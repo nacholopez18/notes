@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Notes.css";
-import { archivednotes } from "../../../API/notes_API";
+import { achivednotes } from "../../../API/notes_API";
 import { Link } from "react-router-dom";
 import ButtonComp from "../../components/Button/ButtonComp";
 
@@ -10,7 +10,7 @@ function AchivedNotes() {
 
   const getAchivedNotes = async () => {
     try {
-      const achivedNotesDb = await archivednotes();
+      const achivedNotesDb = await achivednotes();
       const sortedAchivedNotes =
         order === "desc"
           ? achivedNotesDb.sort((a, b) => b.notes_id - a.notes_id)
@@ -65,8 +65,12 @@ function AchivedNotes() {
           </Link>
         </div>
         <div>
-          <button className="buttonForm">Todas las notas</button>
-          <button className="buttonForm">Notas activas</button>
+          <Link to="/notes">
+            <button className="buttonForm">Todas las notas</button>
+          </Link>
+          <Link to="/notesunachived">
+            <button className="buttonForm">Notas activas</button>
+          </Link>
           <button className="buttonForm">Notas archivadas</button>
         </div>
       </div>

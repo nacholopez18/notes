@@ -6,6 +6,8 @@ import ChekIn from "./pages/Checkin/ChekIn.jsx";
 import Notes from "./pages/Home/Notes.jsx";
 import Card from "./pages/CardNote/Card.jsx";
 import NewNoteForm from "./pages/NewNoteForm/NewNoteForm.jsx";
+import AchivedNotes from "./pages/Home/AchivedNotes.jsx";
+import UnachivedNotes from "./pages/Home/UnachivedNotes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,16 @@ const router = createBrowserRouter([
   {
     path: "/notes",
     element: <Notes />,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/notesachived",
+    element: <AchivedNotes />,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/notesunachived",
+    element: <UnachivedNotes />,
     errorElement: <ErrorPage></ErrorPage>,
   },
   {

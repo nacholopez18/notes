@@ -13,8 +13,8 @@ const {
 const router = express.Router();
 
 router.get("/notes", allnotes);
-router.get("/notesarchived", achivednotes);
-router.get("/notesunarchived", unachivednotes);
+router.get("/notesachived", achivednotes);
+router.get("/notesunachived", unachivednotes);
 router.post("/notes", newnote);
 router.get("/notes/:id", getNoteId);
 router.delete("/notes/:id", deleteNoteId);

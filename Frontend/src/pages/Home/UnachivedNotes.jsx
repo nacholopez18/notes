@@ -4,7 +4,7 @@ import { unachivednotes } from "../../../API/notes_API";
 import { Link } from "react-router-dom";
 import ButtonComp from "../../components/Button/ButtonComp";
 
-function AchivedNotes() {
+function UnachivedNotes() {
   const [unachivedNotes, setUnachivedotes] = useState([]);
   const [order, setOrder] = useState("desc");
 
@@ -65,13 +65,17 @@ function AchivedNotes() {
           </Link>
         </div>
         <div>
-          <button className="buttonForm">Todas las notas</button>
+          <Link to="/notes">
+            <button className="buttonForm">Todas las notas</button>
+          </Link>
           <button className="buttonForm">Notas activas</button>
-          <button className="buttonForm">Notas archivadas</button>
+          <Link to="/notesachived">
+            <button className="buttonForm">Notas archivadas</button>
+          </Link>
         </div>
       </div>
     </>
   );
 }
 
-export default AchivedNotes;
+export default UnachivedNotes;

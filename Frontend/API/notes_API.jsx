@@ -11,7 +11,7 @@ export const allNotes = async () => {
   }
 };
 export const achivednotes = async () => {
-  let url = "/notesarchived";
+  let url = "/notesachived";
   try {
     const result = await api.get(url);
     // console.log(result);
@@ -21,7 +21,7 @@ export const achivednotes = async () => {
   }
 };
 export const unachivednotes = async () => {
-  let url = "/notesunarchived";
+  let url = "/notesunachived";
   try {
     const result = await api.get(url);
     // console.log(result);

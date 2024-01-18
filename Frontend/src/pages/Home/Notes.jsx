@@ -63,8 +63,12 @@ function Notes() {
         </div>
         <div>
           <button className="buttonForm">Todas las notas</button>
-          <button className="buttonForm">Notas activas</button>
-          <button className="buttonForm">Notas archivadas</button>
+          <Link to="/notesunachived">
+            <button className="buttonForm">Notas activas</button>
+          </Link>
+          <Link to="/notesachived">
+            <button className="buttonForm">Notas archivadas</button>
+          </Link>
         </div>
       </div>
     </>
