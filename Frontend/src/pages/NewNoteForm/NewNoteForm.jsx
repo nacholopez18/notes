@@ -38,7 +38,7 @@ function NewNoteForm() {
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
-          <input type="checkbox" value={active} />
+
           <ButtonComp texto="Agregar Nota" type="submit" />
           <Link to="/notes">
             <ButtonComp texto="Volver a notas" />

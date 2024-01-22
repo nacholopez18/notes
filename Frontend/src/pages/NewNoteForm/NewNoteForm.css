@@ -1,10 +1,13 @@
-/* .newNoteContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 .newNoteForm {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.newNoteForm label {
+  font-size: 32px;
+  font-weight: bold;
+}
+.newNoteForm input {
+  margin: 5px;
+  padding: 20px;
 }
